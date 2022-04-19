@@ -1,0 +1,5 @@
+Ball size range 5-25
+Ball speed range 2-15
+All creatures start with same everything
+Ball.movement() starts motion
+tk.mainloop() starts world
