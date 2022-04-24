@@ -4,7 +4,7 @@ from functools import reduce
 random_angle_range = np.pi / 8
 padding_x = 40
 padding_y = 40
-backup_steps = 20
+backup_steps = 2
 
 class Ball:
     def __init__(self, size, speed, color, width, height, canvas, tk):
@@ -29,9 +29,9 @@ class Ball:
 
     def getSpeed(self):
         theta = np.arctan(self.speedy / self.speedx)
- #       if self.speedx < 0:
-  #          theta += np.pi
-        theta += ((-1) ** np.random.randint(0, 2)) * random_angle_range / 2
+        if self.speedx < 0:
+            theta += np.pi
+        theta += ((-1) ** np.random.randint(2)) * random_angle_range / 2
         return map(lambda a: self.speed * a, [np.cos(theta), np.sin(theta)])
 
     def movement(self):
@@ -48,10 +48,10 @@ class Ball:
         if (not self.xflag) and (not self.yflag):
             self.speedx, self.speedy = self.getSpeed()
         pos = self.canvas.bbox(self.ball)
-        if (pos[2] >= self.width - padding_x or pos[0] <= padding_x):
+        if (pos[2] >= self.width - padding_x or pos[0] <= padding_x) and not self.xflag:
             self.speedx *= -1
             self.xflag = True
-        if (pos[3] >= self.height - padding_y or pos[1] <= padding_y):
+        if (pos[3] >= self.height - padding_y or pos[1] <= padding_y) and not self.yflag:
             self.speedy *= -1
             self.yflag = True
 

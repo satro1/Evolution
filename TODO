@@ -5,13 +5,17 @@ Ball.movement() starts motion
 tk.mainloop() starts world
 
 TODO
-    fix weird motion
     make food edible
+    add death
+    add reproduction
     size evolution
     speed evolution
     shelter evolution?
     community evolution?
+    turn hyperparams into %
+    optimize
 
 done
     add motion
     add food
+    * fix weird motion *
