@@ -1,18 +1,24 @@
 from tkinter import *
-from Creature import *
+from Balls import *
 import numpy as np
 
 width, height = 600, 500
+n_creatures = 15
+n_food = 50
+initial_size = 5
+initial_speed = 2
+initial_color = "blue"
+
 tk = Tk()
 canvas = Canvas(tk, width=width, height=height)
 canvas.pack()
 
-n = 15
-colors = ['red', 'green', 'blue', 'yellow', 'white']
-for _ in range(n):
-    size = ((-1)**np.random.randint(0,2)) * (np.random.rand()*20 + 5)
-    speed = ((-1)**np.random.randint(0,2)) * (np.random.rand()*13 + 2)
-    creature = Creature(size, speed, colors[np.random.randint(0, 5)], width, height, canvas, tk)
+for _ in range(n_creatures):
+    creature = Creature(initial_size, initial_speed, initial_color, width, height, canvas, tk)
     creature.movement()
+
+for _ in range(n_food):
+    food = Food(width, height, canvas, tk)
+
 
 tk.mainloop()

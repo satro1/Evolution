@@ -4,8 +4,14 @@ All creatures start with same everything
 Ball.movement() starts motion
 tk.mainloop() starts world
 
-fix weird motion
-add food
+TODO
+    fix weird motion
+    make food edible
+    size evolution
+    speed evolution
+    shelter evolution?
+    community evolution?
 
 done
-add motion
+    add motion
+    add food

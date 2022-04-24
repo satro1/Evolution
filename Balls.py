@@ -8,7 +8,9 @@ backup_steps = 20
 
 class Ball:
     def __init__(self, size, speed, color, width, height, canvas, tk):
-        self.ball = canvas.create_oval(width//2, height//2, width//2 + size, height//2 + size, fill=color)
+        w, h = np.random.rand() * (width - 2 * padding_x) + padding_x, \
+               np.random.rand() * (height - 2 * padding_y) + padding_y
+        self.ball = canvas.create_oval(w, h, w + size, h + size, fill=color)
         canvas.pack()
         self.speed = speed
         self.speedx, self.speedy = self.getInitialSpeed()
@@ -62,3 +64,7 @@ class Creature(Ball):
         
     def movement(self):
         super(Creature, self).movement()
+
+class Food(Ball):
+    def __init__(self, width, height, canvas, tk):
+        super(Food, self).__init__(1, 0, "white", width, height, canvas, tk)
