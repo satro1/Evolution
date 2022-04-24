@@ -18,7 +18,7 @@ class Ball:
         self.height = height
         self.xflag, self.yflag = False, False
         self.stepsx, self.stepsy = 0, 0
-        self.movement()
+  #      self.movement()
 
     def getInitialSpeed(self):
         speed = [np.random.rand() - 0.5, np.random.rand() - 0.5]
@@ -57,5 +57,8 @@ class Ball:
         self.tk.after(50, self.movement)
 
 class Creature(Ball):
-    def __init__(self):
-        pass
+    def __init__(self, size, speed, color, width, height, canvas, tk):
+        super(Creature, self).__init__(size, speed, color, width, height, canvas, tk)
+        
+    def movement(self):
+        super(Creature, self).movement()
