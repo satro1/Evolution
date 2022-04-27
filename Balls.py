@@ -28,7 +28,14 @@ class Ball:
         return map(lambda a: self.speed * a / norm, speed)
 
     def getSpeed(self):
-        theta = np.arctan(self.speedy / self.speedx)
+        theta = 0
+        if self.speedx == 0:
+            if self.speedy > 0:
+                theta = np.pi / 2
+            else:
+                theta = 3 * np.pi / 2
+        else:
+            theta = np.arctan(self.speedy / self.speedx)
         if self.speedx < 0:
             theta += np.pi
         theta += ((-1) ** np.random.randint(2)) * random_angle_range / 2
