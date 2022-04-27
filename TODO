@@ -5,6 +5,7 @@ Ball.movement() starts motion
 tk.mainloop() starts world
 
 TODO
+    *fix boundary issue*
     make food edible
     add death
     add reproduction

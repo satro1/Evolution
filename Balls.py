@@ -1,15 +1,19 @@
 import numpy as np
+import utils
 from functools import reduce
 
-random_angle_range = np.pi / 8
-padding_x = 40
-padding_y = 40
-backup_steps = 2
+params = utils.parse_json("parameters.json")
+random_angle_range = params["random_angle_range"]
+padding_x = params["padding_x"]
+padding_y = params["padding_y"]
+backup_steps = params["backup_steps"]
+y_padding_adjustment = params["y_padding_adjustment"]
+
 
 class Ball:
     def __init__(self, size, speed, color, width, height, canvas, tk):
         w, h = np.random.rand() * (width - 2 * padding_x) + padding_x, \
-               np.random.rand() * (height - 2 * padding_y) + padding_y
+               np.random.rand() * (height - 2 * padding_y) + padding_y + y_padding_adjustment
         self.ball = canvas.create_oval(w, h, w + size, h + size, fill=color)
         canvas.pack()
         self.speed = speed
@@ -20,7 +24,6 @@ class Ball:
         self.height = height
         self.xflag, self.yflag = False, False
         self.stepsx, self.stepsy = 0, 0
-  #      self.movement()
 
     def getInitialSpeed(self):
         speed = [np.random.rand() - 0.5, np.random.rand() - 0.5]
@@ -65,12 +68,11 @@ class Ball:
         self.canvas.move(self.ball, self.speedx, self.speedy)
         self.tk.after(50, self.movement)
 
+
 class Creature(Ball):
     def __init__(self, size, speed, color, width, height, canvas, tk):
         super(Creature, self).__init__(size, speed, color, width, height, canvas, tk)
-        
-    def movement(self):
-        super(Creature, self).movement()
+
 
 class Food(Ball):
     def __init__(self, width, height, canvas, tk):

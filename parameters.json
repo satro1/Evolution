@@ -1,0 +1,14 @@
+{
+  "width": 1400,
+  "height": 1000,
+  "n_creatures": 1,
+  "n_food": 1000,
+  "initial_size": 5,
+  "initial_speed": 2,
+  "initial_color": "blue",
+  "random_angle_range": 0.392699081699,
+  "padding_x": 40,
+  "padding_y": 150,
+  "backup_steps": 40,
+  "y_padding_adjustment": -110
+}
