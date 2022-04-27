@@ -1,5 +1,5 @@
 from tkinter import *
-from Balls import *
+from balls import *
 
 
 class World:

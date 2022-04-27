@@ -1,4 +1,4 @@
-from World import *
+from world import *
 import utils
 
 

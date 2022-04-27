@@ -1,0 +1,11 @@
+balls.py: definitions of Food and Creatures
+
+main.py: starts simulation
+
+parameters.json: contains all hyperparameters
+
+test.py: for local testing
+
+utils.py: for easy IO
+
+world.py: definition of world
